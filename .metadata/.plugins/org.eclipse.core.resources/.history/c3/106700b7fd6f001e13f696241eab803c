@@ -1,0 +1,25 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 21, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+
+int main(){
+
+	LCD_voidInitialize();
+	for(u8 i=0;i<20;i++){
+		LCD_voidWriteData('A');
+	}
+
+	while(1){
+
+	}
+
+	return 0;
+}

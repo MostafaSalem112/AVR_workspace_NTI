@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="E:\embedded_nti\AVR_workspace\C_workspace\keypad_APP"/>
+		<item value="E:\embedded_nti\AVR_workspace\C_workspace\AVR_Drivers"/>
+	</list>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="619" key="DIALOG_X_ORIGIN"/>
+		<item value="210" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

@@ -1,0 +1,12 @@
+/**********************************************************************/
+/*                    Author: Mostafa Salem                           */
+/*                    Date: 20/10/2023                                */
+/*                    Description: seven segment configuration        */
+/**********************************************************************/
+
+#ifndef SEVSEG_CONFIG_H
+#define SEVSEG_CONFIG_H
+
+//free driver
+
+#endif //SEVSEG_CONFIG_H

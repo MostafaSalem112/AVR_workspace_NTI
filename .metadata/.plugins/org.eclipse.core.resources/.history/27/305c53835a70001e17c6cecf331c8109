@@ -1,0 +1,51 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 21, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/HAL/SevenSegment/SEVSEG_interface.h"
+#include "avr/delay.h"
+
+int main(){
+
+	SEVSEG_voidInitialize();
+	 for(u8 i=0;i<100;i++){
+
+		 SEVSEG_voidEnableSegment(SEVSEG_1);
+		 SEVSEG_voidDisableSegment(SEVSEG_2);
+		 SEVSEG_voidDisableSegment(SEVSEG_3);
+		 SEVSEG_voidDisableSegment(SEVSEG_4);
+		 SEVSEG_voidWriteNumber(i%10);
+		 _delay_ms(50);
+
+		 SEVSEG_voidEnableSegment(SEVSEG_2);
+		 SEVSEG_voidDisableSegment(SEVSEG_1);
+		 SEVSEG_voidDisableSegment(SEVSEG_3);
+		 SEVSEG_voidDisableSegment(SEVSEG_4);
+		 SEVSEG_voidWriteNumber(i/10);
+		 _delay_ms(50);
+
+		 SEVSEG_voidEnableSegment(SEVSEG_3);
+		 SEVSEG_voidDisableSegment(SEVSEG_1);
+		 SEVSEG_voidDisableSegment(SEVSEG_2);
+		 SEVSEG_voidDisableSegment(SEVSEG_4);
+		 SEVSEG_voidWriteNumber((99-i)%10);
+		 _delay_ms(50);
+
+		 SEVSEG_voidEnableSegment(SEVSEG_4);
+		 SEVSEG_voidDisableSegment(SEVSEG_1);
+		 SEVSEG_voidDisableSegment(SEVSEG_2);
+		 SEVSEG_voidDisableSegment(SEVSEG_3);
+		 SEVSEG_voidWriteNumber((99-i)/10);
+		 _delay_ms(50);
+
+		 _delay_ms(500);
+	 }
+
+	return 0;
+}

@@ -1,0 +1,19 @@
+/********************************************************************/
+/******************** Author: Mostafa Mahmoud Salem *****************/
+/******************** Date  : 21/10/2023            *****************/
+/******************** Description : LCD interface   *****************/
+/********************************************************************/
+
+#ifndef LCD_INTERFACE_H
+#define LCD_INTERFACE_H
+
+#define LINE1_ADDRESS	(0x00|(1<<7))
+#define LINE2_ADDRESS	(0x40|(1<<7))
+#define LINE3_ADDRESS	(0x14|(1<<7))
+#define LINE3_ADDRESS	(0x54|(1<<7))
+
+void LCD_voidInitialize();
+void LCD_voidWriteData(u8 Copy_u8Data);
+void LCD_voidWriteCommand(u8 Copy_u8Command);
+
+#endif //LCD_INTERFACE_H

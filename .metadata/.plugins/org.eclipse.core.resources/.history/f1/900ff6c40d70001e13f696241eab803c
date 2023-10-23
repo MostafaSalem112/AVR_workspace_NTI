@@ -1,0 +1,17 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 21, 2023
+ *      Author: Mostafa_Salem
+ */
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/HAL/SevenSegment/SEVSEG_interface.h"
+
+int main(){
+
+	DIO_voidSetPinDirection(PORTB,PIN7,PIN_OUTPUT);
+
+	return 0;
+}

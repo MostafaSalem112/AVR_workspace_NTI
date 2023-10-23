@@ -1,0 +1,20 @@
+/**********************************************************************/
+/*                    Author: Mostafa Salem                           */
+/*                    Date: 20/10/2023                                */
+/*                    Description: seven segment interface            */
+/**********************************************************************/
+
+#ifndef SEVSEG_INTERFACE_H
+#define SEVSEG_INTERFACE_H
+
+#define SEVSEG_1	1
+#define SEVSEG_2	2
+#define SEVSEG_3	3
+#define SEVSEG_4	4
+
+void SEVSEG_voidInitialize();
+void SEVSEG_voidSelectSegment(u8 Copy_u8SegmentNum);
+void SEVSEG_voidDisableSegment(u8 Copy_u8SegmentNum);
+void SEVSEG_voidWriteNumber(U8 Copy_u8Number);
+
+#endif //SEVSEG_INTERFACE_H

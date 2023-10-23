@@ -1,0 +1,38 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 21, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+#include "avr/delay.h"
+
+int main(){
+
+	LCD_voidInitialize();
+
+	u8 line=0;
+	u8 col=0;
+
+	while(1){
+		LCD_voidGoToXY(line,col);
+		LCD_voidWriteData('A');
+		_delay_ms(100);
+		LCD_voidClearDisplay();
+		line++;
+		col++;
+		if(line>3){
+			line+0;
+		}
+		if(col>19){
+			col=0;
+		}
+
+	}
+
+	return 0;
+}

@@ -1,0 +1,19 @@
+/**********************************************************************/
+/*                    Author: Mostafa Mahmoud Salem                   */
+/*                    Date: 23/10/2023                                */
+/*                    Description: EXTI program                       */
+/**********************************************************************/
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "EXTI_private.h"
+#include "EXTI_config.h"
+#include "EXTI_interface.h"
+
+void EXTI_voidInitialize(EXTI_t Copy_EXTILine){
+
+	switch(Copy_EXTILine){
+		case EXTI_0:
+			SET_BIT(GICR,)
+	}
+}
+void EXTI_voidSetSenseCase(EXTI_t Copy_EXTILine,SENSE_t Copy_SenseCase);

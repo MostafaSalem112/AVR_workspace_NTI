@@ -1,0 +1,43 @@
+22:23:03 **** Incremental Build of configuration Debug for project counter_APP ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:11:
+e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../main.c:11:
+e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../main.c
+ 
+Building target: counter_APP.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,counter_APP.map -mmcu=atmega32 -o "counter_APP.elf"  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/HAL/Switches/SWITCH_program.o  ./COTS/HAL/SevenSegment/SEVSEG_program.o  ./main.o   
+Finished building target: counter_APP.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S counter_APP.elf  >"counter_APP.lss"
+Finished building: counter_APP.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex counter_APP.elf  "counter_APP.hex"
+Finished building: counter_APP.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 counter_APP.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6326 bytes (19.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+22:23:05 Build Finished (took 1s.290ms)
+

@@ -1,0 +1,11 @@
+/**********************************************************************/
+/*                    Author: Mostafa Salem                           */
+/*                    Date: 20/10/2023                                */
+/*                    Description: switches interface                 */
+/**********************************************************************/
+
+#ifndef SWITCH_INTERFACE_H
+#define SWITCH_INTERFACE_H
+
+
+#endif //SWITCH_INTERFACE_H

@@ -1,0 +1,101 @@
+/********************************************************************/
+/******************** Author: Mostafa Mahmoud Salem *****************/
+/******************** Date  : 21/10/2023            *****************/
+/******************** Description : LCD program     *****************/
+/********************************************************************/
+
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../MCAL/DIO/DIO_interface.h"
+#include "LCD_private.h"
+#include "LCD_config.h"
+#include "LCD_interface.h"
+#include "avr/delay.h"
+
+void LCD_voidInitialize(){
+	DIO_voidSetPinDirection(PORTA,PIN3,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTA,PIN2,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTB,PIN0,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTB,PIN1,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTB,PIN2,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTB,PIN4,PIN_OUTPUT);
+
+	//DIO_voidSetPinValue(PORTA,PIN2,PIN_HIGH);
+	_delay_ms(30);
+
+	DIO_voidSetPinValue(PORTA,PIN3,PIN_LOW);
+
+	DIO_voidSetPinValue(PORTB,PIN0,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_LOW);
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTB,PIN0,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_LOW);
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_HIGH);
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTB,PIN0,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_LOW);
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTB,PIN0,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_HIGH);
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTB,PIN0,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_LOW);
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTB,PIN0,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_LOW);
+	_delay_ms(2);
+
+	DIO_voidSetPinValue(PORTB,PIN0,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_LOW);
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTB,PIN0,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_HIGH);
+	DIO_voidSetPinValue(PORTB,PIN4,PIN_LOW);
+	_delay_ms(1);
+}
+
+void LCD_voidWriteData(u8 Copy_u8Data){
+	DIO_voidSetPinValue(PORTA,PIN3,PIN_HIGH);
+
+	DIO_voidSetPinValue(PORTB,PIN0,GIT_BIT(Copy_u8Data,4));
+	DIO_voidSetPinValue(PORTB,PIN1,GIT_BIT(Copy_u8Data,5));
+	DIO_voidSetPinValue(PORTB,PIN2,GIT_BIT(Copy_u8Data,6));
+	DIO_voidSetPinValue(PORTB,PIN4,GIT_BIT(Copy_u8Data,7));
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTB,PIN0,GIT_BIT(Copy_u8Data,0));
+	DIO_voidSetPinValue(PORTB,PIN1,GIT_BIT(Copy_u8Data,1));
+	DIO_voidSetPinValue(PORTB,PIN2,GIT_BIT(Copy_u8Data,2));
+	DIO_voidSetPinValue(PORTB,PIN4,GIT_BIT(Copy_u8Data,3));
+	_delay_ms(1);
+
+	DIO_voidSetPinValue(PORTA,PIN2,PIN_HIGH);
+	_delay_ms(2);
+	DIO_voidSetPinValue(PORTA,PIN2,PIN_LOW);
+
+}

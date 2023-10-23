@@ -1,0 +1,88 @@
+18:36:30 **** Build of configuration Debug for project keypad_7seg_APP ****
+make all 
+Building file: ../COTS/Services/LinearSearch/LinearSearch_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/Services/LinearSearch/LinearSearch_program.d" -MT"COTS/Services/LinearSearch/LinearSearch_program.o" -c -o "COTS/Services/LinearSearch/LinearSearch_program.o" "../COTS/Services/LinearSearch/LinearSearch_program.c"
+Finished building: ../COTS/Services/LinearSearch/LinearSearch_program.c
+ 
+Building file: ../COTS/Services/BinarySearch/BinarySearch_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/Services/BinarySearch/BinarySearch_program.d" -MT"COTS/Services/BinarySearch/BinarySearch_program.o" -c -o "COTS/Services/BinarySearch/BinarySearch_program.o" "../COTS/Services/BinarySearch/BinarySearch_program.c"
+Finished building: ../COTS/Services/BinarySearch/BinarySearch_program.c
+ 
+Building file: ../COTS/MCAL/DIO/DIO_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/MCAL/DIO/DIO_program.d" -MT"COTS/MCAL/DIO/DIO_program.o" -c -o "COTS/MCAL/DIO/DIO_program.o" "../COTS/MCAL/DIO/DIO_program.c"
+Finished building: ../COTS/MCAL/DIO/DIO_program.c
+ 
+Building file: ../COTS/HAL/Switches/SWITCH_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/HAL/Switches/SWITCH_program.d" -MT"COTS/HAL/Switches/SWITCH_program.o" -c -o "COTS/HAL/Switches/SWITCH_program.o" "../COTS/HAL/Switches/SWITCH_program.c"
+Finished building: ../COTS/HAL/Switches/SWITCH_program.c
+ 
+Building file: ../COTS/HAL/SevenSegment/SEVSEG_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/HAL/SevenSegment/SEVSEG_program.d" -MT"COTS/HAL/SevenSegment/SEVSEG_program.o" -c -o "COTS/HAL/SevenSegment/SEVSEG_program.o" "../COTS/HAL/SevenSegment/SEVSEG_program.c"
+Finished building: ../COTS/HAL/SevenSegment/SEVSEG_program.c
+ 
+Building file: ../COTS/HAL/LEDs/LED_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/HAL/LEDs/LED_program.d" -MT"COTS/HAL/LEDs/LED_program.o" -c -o "COTS/HAL/LEDs/LED_program.o" "../COTS/HAL/LEDs/LED_program.c"
+Finished building: ../COTS/HAL/LEDs/LED_program.c
+ 
+Building file: ../COTS/HAL/LCD/LCD_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/HAL/LCD/LCD_program.d" -MT"COTS/HAL/LCD/LCD_program.o" -c -o "COTS/HAL/LCD/LCD_program.o" "../COTS/HAL/LCD/LCD_program.c"
+In file included from ../COTS/HAL/LCD/LCD_program.c:14:
+e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../COTS/HAL/LCD/LCD_program.c:14:
+e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../COTS/HAL/LCD/LCD_program.c
+ 
+Building file: ../COTS/HAL/KeyPad/KeyPad_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/HAL/KeyPad/KeyPad_program.d" -MT"COTS/HAL/KeyPad/KeyPad_program.o" -c -o "COTS/HAL/KeyPad/KeyPad_program.o" "../COTS/HAL/KeyPad/KeyPad_program.c"
+In file included from ../COTS/HAL/KeyPad/KeyPad_program.c:13:
+e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../COTS/HAL/KeyPad/KeyPad_program.c:13:
+e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../COTS/HAL/KeyPad/KeyPad_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: keypad_7seg_APP.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,keypad_7seg_APP.map -mmcu=atmega32 -o "keypad_7seg_APP.elf"  ./COTS/Services/LinearSearch/LinearSearch_program.o  ./COTS/Services/BinarySearch/BinarySearch_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/HAL/Switches/SWITCH_program.o  ./COTS/HAL/SevenSegment/SEVSEG_program.o  ./COTS/HAL/LEDs/LED_program.o  ./COTS/HAL/LCD/LCD_program.o  ./COTS/HAL/KeyPad/KeyPad_program.o  ./main.o   
+Finished building target: keypad_7seg_APP.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S keypad_7seg_APP.elf  >"keypad_7seg_APP.lss"
+Finished building: keypad_7seg_APP.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex keypad_7seg_APP.elf  "keypad_7seg_APP.hex"
+Finished building: keypad_7seg_APP.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 keypad_7seg_APP.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9728 bytes (29.7% Full)
+(.text + .data + .bootloader)
+
+Data:         32 bytes (1.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:36:32 Build Finished (took 2s.142ms)
+

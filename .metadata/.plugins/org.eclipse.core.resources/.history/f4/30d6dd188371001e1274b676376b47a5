@@ -1,0 +1,102 @@
+/**********************************************************************/
+/*                    Author: Mostafa Mahmoud Salem                   */
+/*                    Date: 23/10/2023                                */
+/*                    Description: EXTI program                       */
+/**********************************************************************/
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "EXTI_private.h"
+#include "EXTI_config.h"
+#include "EXTI_interface.h"
+
+void EXTI_voidEnable(EXTI_t Copy_EXTILine){
+
+	switch(Copy_EXTILine){
+		case EXTI_0:
+			SET_BIT(GICR,INT0);
+			break;
+		case EXTI_1:
+			SET_BIT(GICR,INT1);
+			break;
+		case EXTI_2:
+			SET_BIT(GICR,INT2);
+			break;
+	}
+}
+
+void EXTI_voidDisable(EXTI_t Copy_EXTILine){
+
+	switch(Copy_EXTILine){
+		case EXTI_0:
+			CLR_BIT(GICR,INT0);
+			break;
+		case EXTI_1:
+			CLR_BIT(GICR,INT1);
+			break;
+		case EXTI_2:
+			CLR_BIT(GICR,INT2);
+			break;
+	}
+}
+void EXTI_voidSetSenseCase(EXTI_t Copy_EXTILine,SENSE_t Copy_SenseCase){
+
+	switch(Copy_EXTILine){
+		case EXTI_0:
+
+			switch(Copy_SenseCase){
+				case LOW_LEVEL_SENSE:
+					CLR_BIT(MCUCR,ISC00);
+					CLR_BIT(MCUCR,ISC01);
+					break;
+				case LOGICL_CHANGE_SENSE:
+					SET_BIT(MCUCR,ISC00);
+					CLR_BIT(MCUCR,ISC01);
+					break;
+				case FALLING_EDGE_SENSE:
+					CLR_BIT(MCUCR,ISC00);
+					SET_BIT(MCUCR,ISC01);
+					break;
+				case RISING_EDGE_SENSE:
+					SET_BIT(MCUCR,ISC00);
+					SET_BIT(MCUCR,ISC01);
+					break;
+			}
+
+			break;
+		case EXTI_1:
+
+			switch(Copy_SenseCase){
+				case LOW_LEVEL_SENSE:
+					CLR_BIT(MCUCR,ISC10);
+					CLR_BIT(MCUCR,ISC11);
+					break;
+				case LOGICL_CHANGE_SENSE:
+					SET_BIT(MCUCR,ISC10);
+					CLR_BIT(MCUCR,ISC01);
+					break;
+				case FALLING_EDGE_SENSE:
+					CLR_BIT(MCUCR,ISC10);
+					SET_BIT(MCUCR,ISC11);
+					break;
+				case RISING_EDGE_SENSE:
+					SET_BIT(MCUCR,ISC10);
+					SET_BIT(MCUCR,ISC11);
+					break;
+			}
+
+			break;
+		case EXTI_2:
+
+			switch(Copy_SenseCase){
+				case FALLING_EDGE_SENSE:
+					CLR_BIT(MCUCSR,ISC2);
+					break;
+				case RISING_EDGE_SENSE:
+					SET_BIT(MCUCSR,ISC2);
+					break;
+			}
+
+			break;
+	}
+
+}

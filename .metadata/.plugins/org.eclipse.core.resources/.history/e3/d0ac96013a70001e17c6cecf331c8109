@@ -1,0 +1,79 @@
+/********************************************************************/
+/******************** Author: Mostafa Mahmoud Salem *****************/
+/******************** Date  : 21/10/2023            *****************/
+/******************** Description : LCD program     *****************/
+/********************************************************************/
+
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../MCAL/DIO/DIO_interface.h"
+#include "LCD_private.h"
+#include "LCD_config.h"
+#include "LCD_interface.h"
+#include "avr/delay.h"
+
+void LCD_voidInitialize(){
+
+	DIO_voidSetPinDirection(LCD_CONTROL_PORT,LCD_RS_PIN,PIN_OUTPUT);
+	DIO_voidSetPinDirection(LCD_CONTROL_PORT,LCD_EN_PIN,PIN_OUTPUT);
+
+	DIO_voidSetPinDirection(LCD_DATA_PORT,LCD_DATA_PIN4,PIN_OUTPUT);
+	DIO_voidSetPinDirection(LCD_DATA_PORT,LCD_DATA_PIN5,PIN_OUTPUT);
+	DIO_voidSetPinDirection(LCD_DATA_PORT,LCD_DATA_PIN6,PIN_OUTPUT);
+	DIO_voidSetPinDirection(LCD_DATA_PORT,LCD_DATA_PIN7,PIN_OUTPUT);
+	_delay_ms(30);
+
+	LCD_voidWriteCommand((FUNCTION_SET_2LINES_5x7_DOTS>>4));
+	LCD_voidWriteCommand((FUNCTION_SET_2LINES_5x7_DOTS>>4));
+	LCD_voidWriteCommand((FUNCTION_SET_2LINES_5x7_DOTS));
+	_delay_ms(2);
+
+	LCD_voidWriteCommand((DISPLAY_ON_CURSOR_ON_BLINK_ON>>4));
+	LCD_voidWriteCommand((DISPLAY_ON_CURSOR_ON_BLINK_ON));
+	_delay_ms(2);
+
+	LCD_voidWriteCommand((DISPLAY_CLEAR>>4));
+	LCD_voidWriteCommand((DISPLAY_CLEAR));
+	_delay_ms(2);
+
+	LCD_voidWriteCommand((ENTRY_MODE_SET>>4));
+	LCD_voidWriteCommand((ENTRY_MODE_SET));
+}
+
+void LCD_voidWriteCommand(u8 Copy_u8Command){
+
+	DIO_voidSetPinValue(LCD_CONTROL_PORT,LCD_RS_PIN,PIN_LOW);
+
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN4,GET_BIT(Copy_u8Command,0));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN5,GET_BIT(Copy_u8Command,1));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN6,GET_BIT(Copy_u8Command,2));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN7,GET_BIT(Copy_u8Command,3));
+
+	DIO_voidSetPinValue(LCD_CONTROL_PORT,LCD_EN_PIN,PIN_HIGH);
+	_delay_ms(2);
+	DIO_voidSetPinValue(LCD_CONTROL_PORT,LCD_EN_PIN,PIN_LOW);
+}
+
+void LCD_voidWriteData(u8 Copy_u8Data){
+
+	DIO_voidSetPinValue(LCD_CONTROL_PORT,LCD_RS_PIN,PIN_HIGH);
+
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN4,GET_BIT(Copy_u8Data,4));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN5,GET_BIT(Copy_u8Data,5));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN6,GET_BIT(Copy_u8Data,6));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN7,GET_BIT(Copy_u8Data,7));
+
+	DIO_voidSetPinValue(LCD_CONTROL_PORT,LCD_EN_PIN,PIN_HIGH);
+	_delay_ms(2);
+	DIO_voidSetPinValue(LCD_CONTROL_PORT,LCD_EN_PIN,PIN_LOW);
+
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN4,GET_BIT(Copy_u8Data,0));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN5,GET_BIT(Copy_u8Data,1));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN6,GET_BIT(Copy_u8Data,2));
+	DIO_voidSetPinValue(LCD_DATA_PORT,LCD_DATA_PIN7,GET_BIT(Copy_u8Data,3));
+
+	DIO_voidSetPinValue(LCD_CONTROL_PORT,LCD_EN_PIN,PIN_HIGH);
+	_delay_ms(2);
+	DIO_voidSetPinValue(LCD_CONTROL_PORT,LCD_EN_PIN,PIN_LOW);
+}

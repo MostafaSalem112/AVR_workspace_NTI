@@ -1,0 +1,33 @@
+18:10:41 **** Incremental Build of configuration Debug for project test ****
+make all 
+Building target: test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,test.map -mmcu=atmega32 -o "test.elf"  ./MCAL/DIO/DIO_program.o  ./HAL/SevenSegment/SEVSEG_program.o  ./main.o   
+Finished building target: test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S test.elf  >"test.lss"
+Finished building: test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex test.elf  "test.hex"
+Finished building: test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2846 bytes (8.7% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:10:42 Build Finished (took 1s.136ms)
+
