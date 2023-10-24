@@ -1,0 +1,39 @@
+/*****************************************************************************/
+/*********************** Author : Mostafa Mahmoud Salem **********************/
+/*********************** Date : 24/10/2023              **********************/
+/*********************** Description : ACD private      **********************/
+/*****************************************************************************/
+
+#ifndef ADC_PRIVATE_H
+#define ADC_PRIVATE_H
+
+
+typedef struct{
+	u8 MUX   :5;
+	u8 ADLAR :1;
+	u8 REFS  :2;
+}ADMUX_t;
+
+typedef struct{
+	u8 ADPS  :3;
+	u8 ADIE  :1;
+	u8 ADIF  :1;
+	u8 ADATE :1;
+	u8 ADSC  :1;
+	u8 ADEN  :1;
+}ADCSRA_t;
+
+typedef struct{
+	u8 :5;
+	u8 ADTS :3;
+}SFIOR_t;
+
+#define ADMUX		*((volatile ADMUX_t*)(0x27))
+#define ADCSRA		*((volatile ADCSRA_t*)(0x26))
+#define ADC_L		*((volatile u8*)(0x24))
+#define ADC_H		*((volatile u8*)(0x25))
+#define ADC			*((volatile u16*)(0x24))
+#define SFIOR		((volatile SFIOR_t*)(0x50))
+
+
+#endif // ADC_PRIVATE_H

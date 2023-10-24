@@ -1,0 +1,49 @@
+/*****************************************************************************/
+/*********************** Author : Mostafa Mahmoud Salem **********************/
+/*********************** Date : 24/10/2023              **********************/
+/*********************** Description : ACD program      **********************/
+/*****************************************************************************/
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "ADC_private.h"
+#include "ADC_config.h"
+#include "ADC_interface.h"
+
+void (*ADC_GPfun)(void);
+
+void ADC_voidInitilize(){
+
+	ADMUX->REFS = Voltage_source;
+	ADMUX->ADLAR = ADC_Adjust_Result;
+
+	ADCSRA->ADATE = AUTO_TRIGGER_STATUS;
+	SFIOR->ADTS = Auto_Trigger_Source;
+
+	ADCSRA->ADIE = ADC_INTERRUPT_STATUS;
+
+	ADCSRA->ADPS = PRE_SCALER;
+
+	SET_BIT(ADCSRA,ADEN);
+}
+
+void ADC_voidSelectChannel(ADC_t Copy_ADCChannel){
+
+	ADMUX->MUX = Copy_ADCChannel;
+}
+
+u16 ADC_voidStartConversion(){
+
+	SET_BIT(ADCSRA,ADSC);
+	while(GET_BIT(ADCSRA,ADIF)==0);
+
+	return ADC;
+}
+
+void ADC_SetCallBack(void(*ptr)(void)){
+
+	ADC_GPfun=ptr;
+}
+
+void __vector_1()__attribute__((signal));   // ADC
+void __vector_1(){

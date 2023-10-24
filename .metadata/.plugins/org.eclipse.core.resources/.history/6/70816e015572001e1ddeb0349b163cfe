@@ -1,0 +1,36 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 24, 2023
+ *      Author: Mostafa_Salem
+ */
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/MCAL/ADC/ADC_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+
+
+int main(){
+
+	LCD_voidInitialize();
+	LCD_voidWriteString((u8*)"temp = ");
+
+	DIO_voidSetPinDirection(PORTA,PIN0,PIN_INPUT);
+
+	ADC_voidInitilize();
+	ADC_voidSelectChannel(ADC1);
+
+	u16 data;
+
+	while(1){
+
+		data = ADC_voidStartConversion();
+		LCD_voidGoToXY(1,0);
+		LCD_voidWriteNumber(data);
+		LCD_voidWriteString((u8*)"     ");
+	}
+
+	return 0;
+}
+

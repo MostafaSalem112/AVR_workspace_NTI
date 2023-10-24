@@ -1,0 +1,22 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 24, 2023
+ *      Author: Mostafa_Salem
+ */
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/ADC/ADC_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+
+
+int main(){
+
+	LCD_voidInitialize();
+	LCD_voidWriteString((u8*)"temp = ");
+
+
+
+	return 0;
+}
+

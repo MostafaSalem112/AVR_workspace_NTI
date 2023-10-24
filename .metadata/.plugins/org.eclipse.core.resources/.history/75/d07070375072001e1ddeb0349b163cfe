@@ -1,0 +1,17 @@
+/*****************************************************************************/
+/*********************** Author : Mostafa Mahmoud Salem **********************/
+/*********************** Date : 24/10/2023              **********************/
+/*********************** Description : ACD program      **********************/
+/*****************************************************************************/
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "ADC_private.h"
+#include "ADC_config.h"
+#include "ADC_interface.h"
+
+void ADC_voidInitilize(){
+	ADMUX->
+}
+void ADC_voidSelectChannel(ADC_t Copy_ADCChannel);
+void ADC_voidStartConversion();
