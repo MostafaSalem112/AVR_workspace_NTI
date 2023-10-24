@@ -1,0 +1,89 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 21, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/HAL/SevenSegment/SEVSEG_interface.h"
+#include "avr/delay.h"
+
+void counter_2_digit(u8 counter){
+	 SEVSEG_voidEnableSegment(SEVSEG_1);
+	 SEVSEG_voidWriteNumber(counter/10);
+	 _delay_ms(100);
+	 SEVSEG_voidDisableSegment(SEVSEG_1);
+
+	 SEVSEG_voidEnableSegment(SEVSEG_2);
+	 SEVSEG_voidWriteNumber(counter%10);
+	 _delay_ms(100);
+	 SEVSEG_voidDisableSegment(SEVSEG_2);
+
+}
+
+void counter_1_digit(u8 counter){
+	 SEVSEG_voidEnableSegment(SEVSEG_3);
+	 SEVSEG_voidWriteNumber(counter/10);
+	 _delay_ms(100);
+	 SEVSEG_voidDisableSegment(SEVSEG_3);
+
+	 SEVSEG_voidEnableSegment(SEVSEG_4);
+	 SEVSEG_voidWriteNumber(counter%10);
+	 _delay_ms(100);
+	 SEVSEG_voidDisableSegment(SEVSEG_4);
+
+}
+
+int main(){
+
+	SEVSEG_voidInitialize();
+	 /*for(u8 i=0;i<100;i++){
+
+		 for(u8 j=0;j<10;j++){
+			 SEVSEG_voidEnableSegment(SEVSEG_1);
+			 SEVSEG_voidWriteNumber((99-i)/10);
+			 _delay_ms(10);
+			 SEVSEG_voidDisableSegment(SEVSEG_1);
+
+			 SEVSEG_voidEnableSegment(SEVSEG_3);
+			 SEVSEG_voidWriteNumber(i/10);
+			 _delay_ms(10);
+			 SEVSEG_voidDisableSegment(SEVSEG_3);
+
+			 SEVSEG_voidEnableSegment(SEVSEG_2);
+			 SEVSEG_voidWriteNumber((99-i)%10);
+			 _delay_ms(50);
+			 SEVSEG_voidDisableSegment(SEVSEG_2);
+
+			 SEVSEG_voidEnableSegment(SEVSEG_4);
+			 SEVSEG_voidWriteNumber(i%10);
+			 _delay_ms(50);
+			 SEVSEG_voidDisableSegment(SEVSEG_4);
+		 }
+
+		 _delay_ms(1000);
+	 }*/
+
+	u8 counter_1=0;
+	u8 counter_2=99;
+	while(1){
+		counter_2_digit(counter_2);
+		_delay_ms(100);
+		counter_1_digit(counter_1);
+		_delay_ms(100);
+
+		counter_1++;
+		counter_2--;
+
+		if(counter_1==99){
+			counter_1=0;
+			counter_2=99;
+		}
+	}
+
+
+	return 0;
+}

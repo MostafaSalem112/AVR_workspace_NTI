@@ -1,4 +1,4 @@
-18:46:37 **** Incremental Build of configuration Debug for project reverse_counter_APP ****
+19:54:26 **** Incremental Build of configuration Debug for project reverse_counter_APP ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -29,7 +29,7 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    6534 bytes (19.9% Full)
+Program:    6854 bytes (20.9% Full)
 (.text + .data + .bootloader)
 
 Data:          8 bytes (0.4% Full)
@@ -39,5 +39,5 @@ Data:          8 bytes (0.4% Full)
 Finished building: sizedummy
  
 
-18:46:38 Build Finished (took 826ms)
+19:54:27 Build Finished (took 1s.162ms)
 
