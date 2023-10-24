@@ -1,4 +1,4 @@
-08:33:59 **** Incremental Build of configuration Debug for project reverse_counter_APP ****
+09:25:33 **** Incremental Build of configuration Debug for project reverse_counter_APP ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -39,5 +39,5 @@ Data:          8 bytes (0.4% Full)
 Finished building: sizedummy
  
 
-08:34:00 Build Finished (took 897ms)
+09:25:37 Build Finished (took 3s.866ms)
 

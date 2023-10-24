@@ -1,14 +1,14 @@
-19:07:26 **** Incremental Build of configuration Debug for project LCD_ZIG_ZAG_APP ****
+09:22:19 **** Incremental Build of configuration Debug for project LCD_ZIG_ZAG_APP ****
 make all 
-Building file: ../main.c
+Building file: ../COTS/HAL/LCD/LCD_program.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:12:
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/HAL/LCD/LCD_program.d" -MT"COTS/HAL/LCD/LCD_program.o" -c -o "COTS/HAL/LCD/LCD_program.o" "../COTS/HAL/LCD/LCD_program.c"
+In file included from ../COTS/HAL/LCD/LCD_program.c:14:
 e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
 In file included from e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
-                 from ../main.c:12:
+                 from ../COTS/HAL/LCD/LCD_program.c:14:
 e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-Finished building: ../main.c
+Finished building: ../COTS/HAL/LCD/LCD_program.c
  
 Building target: LCD_ZIG_ZAG_APP.elf
 Invoking: AVR C Linker
@@ -39,5 +39,5 @@ Data:          8 bytes (0.4% Full)
 Finished building: sizedummy
  
 
-19:07:27 Build Finished (took 732ms)
+09:22:20 Build Finished (took 1s.367ms)
 
