@@ -1,0 +1,38 @@
+09:19:20 **** Incremental Build of configuration Debug for project ADC_AutoTrigger ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: ADC_AutoTrigger.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC_AutoTrigger.map -mmcu=atmega32 -o "ADC_AutoTrigger.elf"  ./COTS/Services/Mapping/Mapping_program.o  ./COTS/MCAL/GIE/GIE_program.o  ./COTS/MCAL/EXTI/EXTI_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/MCAL/ADC/ADC_program.o  ./COTS/HAL/LCD/LCD_program.o  ./main.o   
+Finished building target: ADC_AutoTrigger.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC_AutoTrigger.elf  >"ADC_AutoTrigger.lss"
+Finished building: ADC_AutoTrigger.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC_AutoTrigger.elf  "ADC_AutoTrigger.hex"
+Finished building: ADC_AutoTrigger.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ADC_AutoTrigger.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10418 bytes (31.8% Full)
+(.text + .data + .bootloader)
+
+Data:         39 bytes (1.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+09:19:22 Build Finished (took 2s.552ms)
+

@@ -1,0 +1,16 @@
+/********************************************************************/
+/******************** Author: Mostafa Mahmoud Salem *****************/
+/******************** Date  : 25/10/2023            *****************/
+/******************** Description : LMC35 program   *****************/
+/********************************************************************/
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../MCAL/DIO/DIO_interface.h"
+#include "../../MCAL/ADC/ADC_interface.h"
+#include "../../Services/Mapping/Mapping_interface.h"
+
+void LM35_voidInitialize(){
+
+}
+u16 LM_35_u16GetTemperature();

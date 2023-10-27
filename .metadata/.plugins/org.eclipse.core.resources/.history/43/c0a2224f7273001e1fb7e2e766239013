@@ -1,0 +1,24 @@
+/********************************************************************/
+/******************** Author: Mostafa Mahmoud Salem *****************/
+/******************** Date  : 25/10/2023            *****************/
+/******************** Description : LMC35 interface *****************/
+/********************************************************************/
+
+#ifndef LM35_INTERFACE_H
+#define LM35_INTERFACE_H
+
+typedef enum{
+	ADC0,
+	ADC1,
+	ADC2,
+	ADC3,
+	ADC4,
+	ADC5,
+	ADC6,
+	ADC7
+}ADC_t;
+
+void LM35_voidInitialize(ADC_t Copy_ADCChannel);
+u16 LM_35_u16GetTemperature();
+
+#endif // LM35_INTERFACE_H

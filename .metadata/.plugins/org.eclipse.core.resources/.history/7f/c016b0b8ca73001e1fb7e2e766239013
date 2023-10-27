@@ -1,0 +1,72 @@
+/*******************************************************************************/
+/*********************** Author : Mostafa Mahmoud Salem   **********************/
+/*********************** Date : 24/10/2023                **********************/
+/*********************** Description : ACD configurations **********************/
+/*******************************************************************************/
+
+#ifndef ADC_CONFIG_H
+#define ADC_CONFIG_H
+
+/**************************************************/
+/*
+ * AREF
+*  AVCC
+*  Internal
+ */
+#define Voltage_source		AVCC
+/**************************************************/
+
+/**************************************************/
+/*
+ * RIGHT_ADJAST
+ * LEFT_ADJAST
+ */
+#define ADC_Adjust_Result		RIGHT_ADJAST
+/**************************************************/
+
+/**************************************************/
+/*
+ * AUTO_TRIGGER_DISABLE
+ * AUTO_TRIGGER_ENABLE
+ */
+#define AUTO_TRIGGER_STATUS		AUTO_TRIGGER_DISABLE
+/**************************************************/
+
+/**************************************************/
+/*
+ * Free_Running_mode
+ * Analog_Comparator
+ * External_Interrupt_Request_0
+ * Timer_Counter0_Compare_Match
+ * Timer_Counter0_Overflow
+ * Timer_Counter_Compare_Match_B
+ * Timer_Counter1_Overflow
+ * Timer_Counter1_Capture_Event
+ */
+
+#define Auto_Trigger_Source		Free_Running_mode
+/**************************************************/
+
+/**************************************************/
+/*
+ * DIVIDE_2
+ * DIVIDE_4
+ * DIVIDE_8
+ * DIVIDE_16
+ * DIVIDE_32
+ * DIVIDE_64
+ * DIVIDE_128
+*/
+#define PRE_SCALER		DIVIDE_64
+/***************************************************/
+
+/***************************************************/
+/*
+ * ADC_INTERRUPT_DISABLE
+ * ADC_INTERRUPT_ENABLE
+ */
+#define ADC_INTERRUPT_STATUS		ADC_INTERRUPT_ENABLE
+/***************************************************/
+
+
+#endif // ADC_CONFIG_H

@@ -1,0 +1,65 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 26, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/MCAL/GIE/GIE_interface.h"
+#include "COTS/MCAL/EXTI/EXTI_interface.h"
+#include "COTS/MCAL/ADC/ADC_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+#include "COTS/Services/Mapping/Mapping_interface.h"
+
+volatile u8 conversionFlag = 0;
+
+void ADC_ISR(void){
+	conversionFlag = 1;
+}
+
+u16 GetTemperature(u16 ADC_data){
+
+	u16 temp;
+
+	temp = Mapping_u16Map(ADC_data,0,1023,0,500);
+
+	return temp;
+}
+
+int main(){
+
+	GIE_voidEnable();
+
+	EXTI_voidEnable(EXTI_0);
+	EXTI_voidSetSenseCase(FALLING_EDGE_SENSE);
+
+	ADC_voidInitilize();
+	ADC_voidEnableAutoTriggerMode(External_Interrupt_Request_0);
+	ADC_voidSelectChannel(ADC0);
+	ADC_SetCallBack(ADC_ISR);
+
+	LCD_voidInitialize();
+	LCD_voidWriteString((u8*)"temperature : ");
+
+	u16 ADC_data,temp;
+
+	while(1){
+
+		if(conversionFlag){
+
+			ADC_data = ADC_u16ReadData();
+			temp = GetTemperature(ADC_data);
+
+			LCD_voidGoToXY(1,0);
+			LCD_voidWriteNumber((u32)temp);
+			LCD_voidWriteString((u8*)"C    ");
+
+			conversionFlag = 0;
+		}
+	}
+
+	return 0;
+}

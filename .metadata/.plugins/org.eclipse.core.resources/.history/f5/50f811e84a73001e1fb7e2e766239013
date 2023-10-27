@@ -1,0 +1,34 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 25, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/ADC/ADC_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+#include "COTS/Services/Mapping/Mapping_interface.h"
+
+int main(){
+
+	ADC_voidInitilize();
+	ADC_voidSelectChannel(ADC0);
+
+	LCD_voidInitialize();
+
+	u16 ADC_data;
+
+	while(1){
+
+		ADC_voidStartConversion();
+		ADC_data = ADC_u16ReadData();
+
+		LCD_voidGoToXY(0,0);
+		LCD_voidWriteNumber(u32 Copy_u32Number);
+
+	}
+
+	return 0;
+}

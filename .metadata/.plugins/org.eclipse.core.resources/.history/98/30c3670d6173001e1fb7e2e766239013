@@ -1,0 +1,50 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 25, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/ADC/ADC_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+#include "COTS/Services/Mapping/Mapping_interface.h"
+
+
+
+#include "avr/delay.h"
+
+
+s16 tempreture_read(void)
+{
+  s16 temp = ( ( ( ADC_VOIT() )(u32) *2050 ) / 1024 ) -55 ;
+
+  return temp;
+}
+
+int main(){
+
+	ADC_voidInitilize();
+	ADC_voidSelectChannel(ADC0);
+
+	LCD_voidInitialize();
+
+	u16 ADC_data;
+	s32 temp;
+
+	while(1){
+
+		ADC_voidStartConversion();
+		//ADC_data = ADC_u16ReadData();
+		//temp =  (((u32)ADC_data*205)/1023)-55;// (s16)(((u32)ADC_data*5000)/(1023))-55;
+
+		LCD_voidClearDisplay();
+		LCD_voidWriteNumber(tempreture_read());
+
+		_delay_ms(50);
+
+	}
+
+	return 0;
+}

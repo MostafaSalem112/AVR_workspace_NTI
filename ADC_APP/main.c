@@ -21,13 +21,13 @@ int main(){
 	u16 data=0,temp;
 
 	ADC_voidInitilize();
-	ADC_voidSelectChannel(ADC1);
+	ADC_voidSelectChannel(ADC0);
 
 	while(1){
 
-
-		data = ADC_voidStartConversion();
-		temp = Mapping_u16Map(data,0,1023,1,500);
+		ADC_voidStartConversion();
+		data = ADC_u16ReadData();
+		temp = Mapping_u16Map(data,0,1023,0,500);
 		LCD_voidGoToXY(1,0);
 		LCD_voidWriteNumber(temp);
 		LCD_voidWriteString((u8*)"     ");

@@ -1,0 +1,26 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 26, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/MCAL/GIE/GIE_interface.h"
+#include "COTS/MCAL/EXTI/EXTI_interface.h"
+#include "COTS/MCAL/ADC/ADC_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+#include "COTS/Services/Mapping/Mapping_interface.h"
+
+
+int main(){
+
+	GIE_voidEnable();
+
+	EXTI_voidEnable(EXTI_0);
+	EXTI_voidSetSenseCase(FALLING_EDGE_SENSE);
+
+	return 0;
+}
