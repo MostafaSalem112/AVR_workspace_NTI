@@ -1,0 +1,13 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 27, 2023
+ *      Author: Mostafa_Salem
+ */
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/MCAL/EXTI/EXTI_interface.h"
+#include ""
+
+

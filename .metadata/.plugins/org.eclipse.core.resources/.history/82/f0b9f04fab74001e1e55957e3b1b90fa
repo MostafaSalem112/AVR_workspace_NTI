@@ -1,0 +1,13 @@
+/*
+ * TIMER0_private.h
+ *
+ *  Created on: Oct 27, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#ifndef COTS_MCAL_TIMER0_TIMER0_PRIVATE_H_
+#define COTS_MCAL_TIMER0_TIMER0_PRIVATE_H_
+
+
+
+#endif /* COTS_MCAL_TIMER0_TIMER0_PRIVATE_H_ */

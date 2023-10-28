@@ -1,0 +1,29 @@
+/*
+ * TIMER0_program.c
+ *
+ *  Created on: Oct 27, 2023
+ *      Author: Mostafa_Salem
+ */
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "TIMER0_private.h"
+#include "TIMER0_config.h"
+#include "TIMER0_interface.h"
+
+void TIMER0_voidEnable(){
+
+	TCCR0->CS0 = CLOCK_PRESCALER;
+}
+void TIMER0_voidDisable(){
+
+	TCCR0->CS0 = Timer_Counter_stopped;
+}
+void TIMER0_INITIALZE(){
+
+	TCCR0->FOC0 = Force_Output_Compare_STATUS;
+
+	TCCR0->WGM00 = GET_BIT(TIMER_MODE,WGM00_BIT);
+	TCCR0->WGM01 = GET_BIT(TIMER_MODE,WGM01_BIT);
+}
+void TIMER0_voidPreLoad(u8 Copy_u8Value);
+void TIMER0_voidSetTimer(u32 Copy_u32TimeMS);

@@ -1,0 +1,38 @@
+22:42:23 **** Incremental Build of configuration Debug for project TIMER0-LED-Toggle ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: TIMER0-LED-Toggle.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TIMER0-LED-Toggle.map -mmcu=atmega32 -o "TIMER0-LED-Toggle.elf"  ./COTS/MCAL/TIMER0/TIMER0_program.o  ./COTS/MCAL/GIE/GIE_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/HAL/LEDs/LED_program.o  ./main.o   
+Finished building target: TIMER0-LED-Toggle.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TIMER0-LED-Toggle.elf  >"TIMER0-LED-Toggle.lss"
+Finished building: TIMER0-LED-Toggle.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TIMER0-LED-Toggle.elf  "TIMER0-LED-Toggle.hex"
+Finished building: TIMER0-LED-Toggle.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TIMER0-LED-Toggle.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7266 bytes (22.2% Full)
+(.text + .data + .bootloader)
+
+Data:        296 bytes (14.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+22:42:24 Build Finished (took 631ms)
+
