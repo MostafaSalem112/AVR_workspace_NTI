@@ -1,0 +1,45 @@
+/*
+ * TIMER1_program.c
+ *
+ *  Created on: Oct 28, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../Services/Mapping/Mapping_interface.h"
+#include "TIMER1_private.h"
+#include "TIMER1_config.h"
+#include "TIMER1_interface.h"
+
+
+void TIMER1_voidEnable(){
+
+	TCCR1B->CS1 = CLOCK_PRESCALER;
+}
+
+void TIMER1_voidDisable(){
+
+	TCCR1B->CS1 = Timer_Counter_stopped;
+}
+
+void TIMER1_voidInitialize(){
+
+	TCCR1A->COM1A = Compare_Output_Mode_A;
+	TCCR1A->COM1B = Compare_Output_Mode_B;
+
+	TCCR1A->FOC1A = Force_Output_Compare_A_STATUS;
+	TCCR1A->FOC1B = Force_Output_Compare_B_STATUS;
+
+	TCCR1A->WGM1 = ((TIMER_MODE>>0)&(0b11));
+	TCCR1B->WGM1 = ((TIMER_MODE>>2)&(0b11));
+
+	TCCR1B->ICNC1 = Input_Capture_Noise_Canceler_STATUS;
+
+	TCCR1B->ICES1 = Input_Capture_Edge;
+
+	TIMSK->TICIE1 = Input_Capture_Interrupt_STATUS;
+	TIMSK->OCIE1A = Output_Compare_A_Match_Interrupt_STATUS;
+	TIMSK->OCIE1B = Output_Compare_B_Match_Interrupt_STATUS;
+	TIMSK->TOIE1 = Overflow_Interrupt_STATUS;
+}

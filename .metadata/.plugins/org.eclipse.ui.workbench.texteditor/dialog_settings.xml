@@ -10,6 +10,7 @@
 		<list key="findhistory">
 			<item value="SetBit"/>
 			<item value="ClrBit"/>
+			<item value="Copy_u32Period"/>
 			<item value="TogBit"/>
 			<item value="GetBit"/>
 		</list>

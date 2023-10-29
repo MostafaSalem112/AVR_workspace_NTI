@@ -1,0 +1,43 @@
+06:29:59 **** Incremental Build of configuration Debug for project SERVO_APP ****
+make all 
+Building file: ../COTS/MCAL/ADC/ADC_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"COTS/MCAL/ADC/ADC_program.d" -MT"COTS/MCAL/ADC/ADC_program.o" -c -o "COTS/MCAL/ADC/ADC_program.o" "../COTS/MCAL/ADC/ADC_program.c"
+Finished building: ../COTS/MCAL/ADC/ADC_program.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: SERVO_APP.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SERVO_APP.map -mmcu=atmega32 -o "SERVO_APP.elf"  ./COTS/Services/Mapping/Mapping_program.o  ./COTS/MCAL/TIMER1/TIMER1_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/MCAL/ADC/ADC_program.o  ./COTS/HAL/SERVO/SERVO_progrm.o  ./main.o   
+Finished building target: SERVO_APP.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SERVO_APP.elf  >"SERVO_APP.lss"
+Finished building: SERVO_APP.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SERVO_APP.elf  "SERVO_APP.hex"
+Finished building: SERVO_APP.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SERVO_APP.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8668 bytes (26.5% Full)
+(.text + .data + .bootloader)
+
+Data:        298 bytes (14.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+06:30:01 Build Finished (took 1s.564ms)
+

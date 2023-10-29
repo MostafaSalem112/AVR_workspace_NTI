@@ -1,4 +1,4 @@
-22:58:59 **** Incremental Build of configuration Debug for project TIMER0_EXTI-TOG_LED ****
+09:12:53 **** Incremental Build of configuration Debug for project TIMER0_EXTI-TOG_LED ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -24,15 +24,15 @@ AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   12836 bytes (39.2% Full)
+Program:   12852 bytes (39.2% Full)
 (.text + .data + .bootloader)
 
-Data:        314 bytes (15.3% Full)
+Data:        322 bytes (15.7% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-22:59:00 Build Finished (took 844ms)
+09:12:54 Build Finished (took 895ms)
 

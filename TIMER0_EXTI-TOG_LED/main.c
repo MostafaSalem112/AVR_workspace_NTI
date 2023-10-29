@@ -45,7 +45,7 @@ int main(){
 	GIE_voidEnable();
 
 	ADC_voidInitilize();
-	ADC_voidSelectChannel(ADC0);
+	ADC_voidSelectChannel(ADC1);
 	ADC_voidEnableAutoTriggerMode(Timer_Counter0_Overflow);
 	ADC_SetCallBack(ADC_ISR);
 
@@ -75,6 +75,7 @@ int main(){
 
 			LCD_voidGoToXY(1,0);
 			LCD_voidWriteNumber(temp);
+			LCD_voidWriteString((u8*)"      ");
 
 			flag=0;
 		}

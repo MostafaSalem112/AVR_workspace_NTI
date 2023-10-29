@@ -1,0 +1,29 @@
+/*
+ * TIMER1_program.c
+ *
+ *  Created on: Oct 28, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../Services/Mapping/Mapping_interface.h"
+#include "TIMER1_private.h"
+#include "TIMER1_config.h"
+#include "TIMER1_interface.h"
+
+
+void TIMER1_voidEnable(){
+
+	TCCR1B->CS1 = CLOCK_PRESCALER;
+}
+
+void TIMER1_voidDisable(){
+
+	TCCR1B->CS1 = Timer_Counter_stopped;
+}
+
+void TIMER0_voidInitialize(){
+
+
+}

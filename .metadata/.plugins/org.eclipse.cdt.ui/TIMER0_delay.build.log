@@ -1,23 +1,5 @@
-23:49:50 **** Incremental Build of configuration Debug for project TIMER0_delay ****
+09:13:48 **** Incremental Build of configuration Debug for project TIMER0_delay ****
 make all 
-Building file: ../COTS/MCAL/TIMER0/TIMER0_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"COTS/MCAL/TIMER0/TIMER0_program.d" -MT"COTS/MCAL/TIMER0/TIMER0_program.o" -c -o "COTS/MCAL/TIMER0/TIMER0_program.o" "../COTS/MCAL/TIMER0/TIMER0_program.c"
-Finished building: ../COTS/MCAL/TIMER0/TIMER0_program.c
- 
-Building target: TIMER0_delay.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,TIMER0_delay.map -mmcu=atmega32 -o "TIMER0_delay.elf"  ./COTS/MCAL/TIMER0/TIMER0_program.o  ./COTS/MCAL/GIE/GIE_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/HAL/LEDs/LED_program.o  ./main.o   
-Finished building target: TIMER0_delay.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S TIMER0_delay.elf  >"TIMER0_delay.lss"
-Finished building: TIMER0_delay.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TIMER0_delay.elf  "TIMER0_delay.hex"
-Finished building: TIMER0_delay.hex
- 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 TIMER0_delay.elf
 AVR Memory Usage
@@ -34,5 +16,5 @@ Data:        297 bytes (14.5% Full)
 Finished building: sizedummy
  
 
-23:49:51 Build Finished (took 1s.165ms)
+09:13:49 Build Finished (took 375ms)
 

@@ -1,0 +1,26 @@
+/*
+ * SERVO_progrm.c
+ *
+ *  Created on: Oct 28, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../MCAL/TIMER1/TIMER1_interface.h"
+#include "../../Services/Mapping/Mapping_interface.h"
+#include "SERVO_interface.h"
+
+void SERVO_voidSetAngle(u8 Copy_u8Angle){
+
+	u32 period = 20;
+	f32 top = 2.5;
+	f32 bottom = 0.750;
+
+	u8 lower_dutyCycle = (bottom*100)/period;
+	u8 UPPER_dutyCycle = (top*100)/period;
+
+	u8 dutyCycle = Mapping_u16Map(Copy_u8Angle,0,180,lower_dutyCycle,UPPER_dutyCycle);
+
+	TIMER1_voidGeneratePWM(period,dutyCycle);
+}
