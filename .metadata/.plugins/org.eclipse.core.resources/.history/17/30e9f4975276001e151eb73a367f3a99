@@ -1,0 +1,83 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 29, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/MCAL/UART/UART_interface.h"
+#include "COTS/MCAL/TIMER1/TIMER1_interface.h"
+#include "COTS/HAL/SERVO/SERVO_interface.h"
+
+
+int main(){
+
+
+	DIO_voidSetPinDirection(PORTD,PIN0,PIN_INPUT);
+	DIO_voidSetPinDirection(PORTD,PIN1,PIN_OUTPUT);
+
+	UART_voidInitialize();
+
+	DIO_voidSetPinDirection(PORTD,PIN5,PIN_OUTPUT);
+
+	u8 data;
+
+	while(1){
+		data = UART_u8ReciveData();
+
+		switch(data){
+		case '7':
+			SERVO_voidSetAngle(0);
+			break;
+		case '8':
+			SERVO_voidSetAngle(10);
+			break;
+		case '9':
+			SERVO_voidSetAngle(20);
+			break;
+		case '/':
+			SERVO_voidSetAngle(25);
+			break;
+		case '4':
+			SERVO_voidSetAngle(30);
+			break;
+		case '5':
+			SERVO_voidSetAngle(35);
+			break;
+		case '6':
+			SERVO_voidSetAngle(40);
+			break;
+		case '*':
+			SERVO_voidSetAngle(45);
+			break;
+		case '1':
+			SERVO_voidSetAngle(50);
+			break;
+		case '2':
+			SERVO_voidSetAngle(60);
+			break;
+		case '3':
+			SERVO_voidSetAngle(65);
+			break;
+		case '-':
+			SERVO_voidSetAngle(70);
+			break;
+		case 'c':
+			SERVO_voidSetAngle(75);
+			break;
+		case '0':
+			SERVO_voidSetAngle(80);
+			break;
+		case '=':
+			SERVO_voidSetAngle(90);
+			break;
+		case '+':
+			SERVO_voidSetAngle(100);
+			break;
+		}
+	}
+	return 0;
+}

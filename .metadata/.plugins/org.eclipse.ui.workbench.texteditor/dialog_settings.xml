@@ -10,15 +10,15 @@
 		<list key="findhistory">
 			<item value="SetBit"/>
 			<item value="ClrBit"/>
+			<item value="GetBit"/>
 			<item value="Copy_u32Period"/>
 			<item value="TogBit"/>
-			<item value="GetBit"/>
 		</list>
 		<list key="replacehistory">
 			<item value="SET_BIT"/>
 			<item value="CLR_BIT"/>
-			<item value="TOG_BIT"/>
 			<item value="GET_BIT"/>
+			<item value="TOG_BIT"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
