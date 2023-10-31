@@ -13,6 +13,7 @@
 #include "COTS/MCAL/GIE/GIE_interface.h"
 #include "COTS/MCAL/TIMER0/TIMER0_interface.h"
 #include "COTS/MCAL/TIMER1/TIMER1_interface.h"
+#include "COTS/MCAL/SPI/SPI_interface.h"
 #include "COTS/HAL/KeyPad/KeyPad_interface.h"
 #include "COTS/HAL/LCD/LCD_interface.h"
 #include "COTS/HAL/LEDs/LED_interface.h"

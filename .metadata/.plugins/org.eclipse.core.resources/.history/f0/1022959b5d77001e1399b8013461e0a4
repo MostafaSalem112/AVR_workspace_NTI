@@ -1,0 +1,69 @@
+/*
+ * USART_program.c
+ *
+ *  Created on: Oct 29, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "USART_private.h"
+#include "USART_config.h"
+#include "USART_interface.h"
+
+u8 TEMP = 0;
+
+void UART_voidInitialize(){
+
+	u16 BAUD_RATE_REG;
+
+	UCSRA->U2X = Double_Transmission_Speed_STATUS;
+
+	UCSRB->RXCIE = RX_Complete_Interrupt_STATUS;
+	UCSRB->TXCIE = TX_Complete_Interrupt_STATUS;
+	UCSRB->UDRIE = Data_Register_Empty_Interrupt_STATUS;
+
+	UCSRB->RXEN = USART_ENABLE;
+	UCSRB->TXEN = USART_ENABLE;
+
+	SET_BIT(TEMP,7);
+	TEMP |= (OPERATION_MODE<<6);
+	TEMP |= (POLARITY_CHECK_MODE<<4);
+	TEMP |= (STOP_BIT_MODE<<3);
+	TEMP |= ((CHAR_SIZE&0b011)<<1);
+	UCSRB->UCSZ2 = ((CHAR_SIZE>>2)&0b1);
+	TEMP |= (CLOCK_POLARITY<<0);
+
+	UCSRC = TEMP;
+
+	#if OPERATION_MODE == Synchronous_Operation
+		BAUD_RATE_REG = (CLOCK_FREQUENCY/(2*(u32)BAUD_RATE))-1;
+	#elif OPERATION_MODE == Asynchronous_Operation
+		#if Double_Transmission_Speed_STATUS == USART_ENABLE
+			BAUD_RATE_REG = (CLOCK_FREQUENCY/(8*(u32)BAUD_RATE))-1;
+		#elif Double_Transmission_Speed_STATUS == USART_DISABLE
+			BAUD_RATE_REG = (CLOCK_FREQUENCY/(16*(u32)BAUD_RATE))-1;
+		#endif
+	#endif
+
+	UBRRH = (u8)(BAUD_RATE_REG>>8);
+	UBRRL = (u8)BAUD_RATE_REG;
+}
+
+void UART_voidSendData(u8 Copy_u8Data){
+
+	UDR = Copy_u8Data;
+
+	#if Data_Register_Empty_Interrupt_STATUS == USART_DISABLE
+		while(UCSRA->UDRE == 0);
+	#endif
+}
+
+u8 UART_u8ReciveData(){
+
+	#if RX_Complete_Interrupt_STATUS == USART_DISABLE
+		while(UCSRA->RXC == 0);
+	#endif
+
+	return UDR;
+}

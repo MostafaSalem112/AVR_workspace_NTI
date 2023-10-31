@@ -1,0 +1,38 @@
+20:08:19 **** Incremental Build of configuration Debug for project SERVO_test ****
+make all 
+Building file: ../COTS/MCAL/TIMER1/TIMER1_program.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"COTS/MCAL/TIMER1/TIMER1_program.d" -MT"COTS/MCAL/TIMER1/TIMER1_program.o" -c -o "COTS/MCAL/TIMER1/TIMER1_program.o" "../COTS/MCAL/TIMER1/TIMER1_program.c"
+Finished building: ../COTS/MCAL/TIMER1/TIMER1_program.c
+ 
+Building target: SERVO_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SERVO_test.map -mmcu=atmega32 -o "SERVO_test.elf"  ./COTS/Services/Mapping/Mapping_program.o  ./COTS/MCAL/TIMER1/TIMER1_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/HAL/SERVO/SERVO_progrm.o  ./main.o   
+Finished building target: SERVO_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SERVO_test.elf  >"SERVO_test.lss"
+Finished building: SERVO_test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SERVO_test.elf  "SERVO_test.hex"
+Finished building: SERVO_test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SERVO_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8988 bytes (27.4% Full)
+(.text + .data + .bootloader)
+
+Data:        296 bytes (14.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:08:20 Build Finished (took 1s.172ms)
+

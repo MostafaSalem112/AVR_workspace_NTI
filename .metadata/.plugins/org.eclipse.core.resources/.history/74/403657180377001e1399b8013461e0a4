@@ -1,0 +1,19 @@
+/*
+ * SPI_program.c
+ *
+ *  Created on: Oct 30, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "SPI_private.h"
+#include "SPI_config.h"
+#include "SPI_interface.h"
+
+
+void SPI_voidInitialize(u8 Copy_u8ModeSelect){
+
+	SPCR->
+}
+u8 SPI_u8Transceive(u8 Copu_u8Data);

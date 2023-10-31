@@ -1,0 +1,38 @@
+18:34:10 **** Incremental Build of configuration Debug for project SPI_slave ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: SPI_slave.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SPI_slave.map -mmcu=atmega32 -o "SPI_slave.elf"  ./COTS/MCAL/SPI/SPI_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/HAL/LCD/LCD_program.o  ./main.o   
+Finished building target: SPI_slave.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SPI_slave.elf  >"SPI_slave.lss"
+Finished building: SPI_slave.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SPI_slave.elf  "SPI_slave.hex"
+Finished building: SPI_slave.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SPI_slave.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8250 bytes (25.2% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:34:11 Build Finished (took 679ms)
+

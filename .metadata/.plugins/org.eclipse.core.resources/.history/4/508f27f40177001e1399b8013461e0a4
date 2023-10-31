@@ -1,0 +1,13 @@
+/*
+ * SPI_interface.h
+ *
+ *  Created on: Oct 30, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#ifndef COTS_MCAL_SPI_SPI_INTERFACE_H_
+#define COTS_MCAL_SPI_SPI_INTERFACE_H_
+
+
+
+#endif /* COTS_MCAL_SPI_SPI_INTERFACE_H_ */
