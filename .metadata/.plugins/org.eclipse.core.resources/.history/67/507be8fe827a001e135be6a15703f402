@@ -1,0 +1,97 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 1, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/ADC/ADC_interface.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/MCAL/GIE/GIE_interface.h"
+#include "COTS/MCAL/SPI/SPI_interface.h"
+#include "COTS/MCAL/TIMER0/TIMER0_interface.h"
+#include "COTS/MCAL/TIMER1/TIMER1_interface.h"
+#include "COTS/HAL/SERVO/SERVO_interface.h"
+#include "COTS/Services/Mapping/Mapping_interface.h"
+
+
+int main(){
+
+	DIO_voidSetPinDirection(PORTB,PIN1,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTB,PIN2,PIN_OUTPUT);
+	DIO_voidSetPinValue(PORTB,PIN1,PIN_LOW);
+	DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+	DIO_voidSetPinDirection(PORTB,PIN3,PIN_OUTPUT);
+
+	DIO_voidSetPinDirection(PORTB,PIN4,PIN_INPUT);
+	DIO_voidSetPinDirection(PORTB,PIN5,PIN_INPUT);
+	DIO_voidSetPinDirection(PORTB,PIN6,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTB,PIN7,PIN_INPUT);
+
+	DIO_voidSetPinDirection(PORTD,PIN4,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTD,PIN5,PIN_OUTPUT);
+
+	SPI_voidInitialize();
+
+	TIMER0_voidEnable();
+	TIMER0_voidInitialize();
+	TIMER0_voidSetPWM(0);
+
+	TIMER1_voidEnable();
+	TIMER1_voidInitialize();
+
+	ADC_voidInitilize();
+	ADC_voidSelectChannel(ADC0);
+	ADC_voidStartConversion();
+
+	u8 SPI_data,speed;
+	u16 ADC_data,temp;
+
+	while(1){
+
+		if((DIO_u8GetPinValue(PORTB,PIN4)) == PIN_LOW){
+			ADC_voidStartConversion();
+			SPI_data = SPI_u8Transceive((u8)temp);
+			switch(SPI_data){
+				case 'C':
+					DIO_voidSetPinValue(PORTB,PIN1,PIN_HIGH);
+					DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+					break;
+				case 'A':
+					DIO_voidSetPinValue(PORTB,PIN1,PIN_LOW);
+					DIO_voidSetPinValue(PORTB,PIN2,PIN_HIGH);
+					break;
+				case 'S':
+					DIO_voidSetPinValue(PORTB,PIN1,PIN_LOW);
+					DIO_voidSetPinValue(PORTB,PIN2,PIN_LOW);
+					break;
+				case 'O':
+					SERVO_voidSetAngle(CHANNEL_A,180);
+					break;
+				case 'P':
+					SERVO_voidSetAngle(CHANNEL_A,0);
+					break;
+				case 'Q':
+					SERVO_voidSetAngle(CHANNEL_B,180);
+					break;
+				case 'R':
+					SERVO_voidSetAngle(CHANNEL_B,0);
+					break;
+				case 'T':
+					ADC_voidStartConversion();
+					ADC_data = ADC_u16ReadData();
+					temp = Mapping_u16Map(ADC_data,0,1023,0,500);
+					break;
+				default:
+					SPI_data -= '0';
+					speed = Mapping_u16Map(SPI_data,0,9,0,90);
+					TIMER0_voidSetPWM(speed);
+					break;
+			}
+		}
+	}
+
+	return 0;
+}

@@ -1,0 +1,30 @@
+/*
+ * ICU_program.c
+ *
+ *  Created on: Nov 4, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../MCAL/EXTI/EXTI_interface.h"
+#include "../../MCAL/TIMER1/TIMER1_interface.h"
+#include "ICU_private.h"
+#include "ICU_config.h"
+#include "ICU_interface.h"
+
+u8 EXTI_flag = 0;
+
+void EXTI_ISR(){
+
+
+}
+
+void ICU_voidInitialize(){
+
+	EXTI_voidEnable(ICU_CHANNEL);
+	EXTI_voidSetSenseCase(ICU_CHANNEL,RISING_EDGE_SENSE);
+
+	EXTI_SetCallBack(ICU_CHANNEL,EXTI_ISR);
+
+}

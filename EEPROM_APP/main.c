@@ -1,0 +1,33 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 4, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/HAL/EEPROM/EEPROM_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+
+int main(){
+
+	LCD_voidInitialize();
+	EEPROM_voidInitialze();
+
+	u8 data;
+	EEPROM_voidWriteData(0x0000,'A');
+
+	data = EEPROM_u8ReadData(0x0000);
+
+	LCD_voidGoToXY(0,0);
+	LCD_voidWriteData(data);
+
+	while(1){
+
+	}
+
+
+	return 0;
+}

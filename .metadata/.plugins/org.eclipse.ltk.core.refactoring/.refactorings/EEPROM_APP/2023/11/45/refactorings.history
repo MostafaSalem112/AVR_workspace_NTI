@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;EEPROM_APP/COTS/MCAL/I2C/I2C.c&apos; to &apos;I2C_program.c&apos;" description="Rename resource &apos;I2C.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="COTS/MCAL/I2C/I2C.c" name="I2C_program.c" stamp="1699460391974" updateReferences="true"/>
+</session>

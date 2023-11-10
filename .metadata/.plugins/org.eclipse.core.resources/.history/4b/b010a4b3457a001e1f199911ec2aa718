@@ -1,0 +1,13 @@
+/*
+ * I2C_interface.h
+ *
+ *  Created on: Nov 3, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#ifndef COTS_MCAL_I2C_I2C_INTERFACE_H_
+#define COTS_MCAL_I2C_I2C_INTERFACE_H_
+
+void I2C_voidInitialize();
+
+#endif /* COTS_MCAL_I2C_I2C_INTERFACE_H_ */

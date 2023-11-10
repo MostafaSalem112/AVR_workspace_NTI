@@ -1,20 +1,43 @@
-18:30:20 **** Incremental Build of configuration Debug for project SPI_master ****
+14:36:17 **** Incremental Build of configuration Debug for project SPI_master ****
 make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:13:
+e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../main.c:13:
+e:/embedded_iti/01-embedded systems avr tools/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../main.c
+ 
+Building target: SPI_master.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SPI_master.map -mmcu=atmega32 -o "SPI_master.elf"  ./COTS/MCAL/SPI/SPI_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/HAL/KeyPad/KeyPad_program.o  ./main.o   
+Finished building target: SPI_master.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SPI_master.elf  >"SPI_master.lss"
+Finished building: SPI_master.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SPI_master.elf  "SPI_master.hex"
+Finished building: SPI_master.hex
+ 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 SPI_master.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:    2708 bytes (8.3% Full)
+Program:    6038 bytes (18.4% Full)
 (.text + .data + .bootloader)
 
-Data:         24 bytes (1.2% Full)
+Data:         32 bytes (1.6% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-18:30:20 Build Finished (took 303ms)
+14:36:19 Build Finished (took 2s.18ms)
 

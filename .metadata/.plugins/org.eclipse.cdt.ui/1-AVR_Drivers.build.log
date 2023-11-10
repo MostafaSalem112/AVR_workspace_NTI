@@ -1,38 +1,20 @@
-21:49:26 **** Incremental Build of configuration Debug for project 1-AVR_Drivers ****
+10:20:41 **** Incremental Build of configuration Debug for project 1-AVR_Drivers ****
 make all 
-Building file: ../COTS/MCAL/USART/USART_program.c
-Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"COTS/MCAL/USART/USART_program.d" -MT"COTS/MCAL/USART/USART_program.o" -c -o "COTS/MCAL/USART/USART_program.o" "../COTS/MCAL/USART/USART_program.c"
-Finished building: ../COTS/MCAL/USART/USART_program.c
- 
-Building target: 1-AVR_Drivers.elf
-Invoking: AVR C Linker
-avr-gcc -Wl,-Map,1-AVR_Drivers.map -mmcu=atmega32 -o "1-AVR_Drivers.elf"  ./COTS/Services/Mapping/Mapping_program.o  ./COTS/Services/LinearSearch/LinearSearch_program.o  ./COTS/Services/BinarySearch/BinarySearch_program.o  ./COTS/MCAL/USART/USART_program.o  ./COTS/MCAL/TIMER1/TIMER1_program.o  ./COTS/MCAL/TIMER0/TIMER0_program.o  ./COTS/MCAL/SPI/SPI_program.o  ./COTS/MCAL/GIE/GIE_program.o  ./COTS/MCAL/EXTI/EXTI_program.o  ./COTS/MCAL/DIO/DIO_program.o  ./COTS/MCAL/ADC/ADC_program.o  ./COTS/HAL/Switches/SWITCH_program.o  ./COTS/HAL/SevenSegment/SEVSEG_program.o  ./COTS/HAL/SERVO/SERVO_progrm.o  ./COTS/HAL/LM35/LM35_program.o  ./COTS/HAL/LEDs/LED_program.o  ./COTS/HAL/LCD/LCD_program.o  ./COTS/HAL/KeyPad/KeyPad_program.o  ./main.o   
-Finished building target: 1-AVR_Drivers.elf
- 
-Invoking: AVR Create Extended Listing
-avr-objdump -h -S 1-AVR_Drivers.elf  >"1-AVR_Drivers.lss"
-Finished building: 1-AVR_Drivers.lss
- 
-Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 1-AVR_Drivers.elf  "1-AVR_Drivers.hex"
-Finished building: 1-AVR_Drivers.hex
- 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega32 1-AVR_Drivers.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   18186 bytes (55.5% Full)
+Program:   20644 bytes (63.0% Full)
 (.text + .data + .bootloader)
 
-Data:        350 bytes (17.1% Full)
+Data:        385 bytes (18.8% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-21:49:27 Build Finished (took 1s.580ms)
+10:20:41 Build Finished (took 413ms)
 

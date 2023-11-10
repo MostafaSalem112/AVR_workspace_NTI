@@ -10,8 +10,9 @@
 #include "COTS/MCAL/DIO/DIO_interface.h"
 #include "COTS/MCAL/SPI/SPI_interface.h"
 #include "COTS/HAL/KeyPad/KeyPad_interface.h"
+#include "avr/delay.h"
 
-
+/*
 int main(){
 
 	DIO_voidSetPinDirection(PORTA,PIN0,PIN_OUTPUT);
@@ -53,6 +54,48 @@ int main(){
 			}
 
 		}
+	}
+
+	return 0;
+}*/
+
+int main(){
+
+
+	DIO_voidSetPinDirection(PORTA,PIN0,PIN_OUTPUT);
+	DIO_voidSetPinValue(PORTA,PIN0,PIN_HIGH);
+	DIO_voidSetPinDirection(PORTA,PIN1,PIN_OUTPUT);
+	DIO_voidSetPinValue(PORTA,PIN1,PIN_HIGH);
+
+	DIO_voidSetPinDirection(PORTB,PIN5,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTB,PIN6,PIN_INPUT);
+	DIO_voidSetPinDirection(PORTB,PIN7,PIN_OUTPUT);
+
+	SPI_voidInitialize();
+
+	u8 SPI_value;
+
+	while(1){
+		DIO_voidSetPinValue(PORTA,PIN0,PIN_LOW);
+		SPI_value = SPI_u8Transceive('O');
+		DIO_voidSetPinValue(PORTA,PIN0,PIN_HIGH);
+
+		_delay_ms(1000);
+
+		DIO_voidSetPinValue(PORTA,PIN0,PIN_LOW);
+		SPI_value = SPI_u8Transceive('P');
+		DIO_voidSetPinValue(PORTA,PIN0,PIN_HIGH);
+
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_LOW);
+		SPI_value = SPI_u8Transceive('O');
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_HIGH);
+
+		_delay_ms(1000);
+
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_LOW);
+		SPI_value = SPI_u8Transceive('P');
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_HIGH);
+
 	}
 
 	return 0;

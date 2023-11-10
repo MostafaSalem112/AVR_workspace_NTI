@@ -1,0 +1,68 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 4, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "COTS/LIB/Bit_Math.h"
+#include "COTS/LIB/STD_Types.h"
+#include "COTS/MCAL/DIO/DIO_interface.h"
+#include "COTS/MCAL/GIE/GIE_interface.h"
+#include "COTS/MCAL/TIMER0/TIMER0_interface.h"
+#include "COTS/MCAL/TIMER1/TIMER1_interface.h"
+#include "COTS/HAL/LCD/LCD_interface.h"
+#include "avr/delay.h"
+
+u16 period,T_ON,ICU_data;
+
+void ICU_ISR(){
+
+	static u8 flag = 0;
+
+	if(flag == 0){
+		ICU_data = TIMER1_u16GetICR1();
+		flag = 1;
+	}else if(flag == 1){
+		period = TIMER1_u16GetICR1() - ICU_data;
+		ICU_data = TIMER1_u16GetICR1();
+		TIMER1_voidICUEdge(Input_Capture_Falling_Edge);
+		flag = 2;
+	}else if(flag == 2){
+		T_ON = TIMER1_u16GetICR1() - ICU_data;
+		TIMER1_voidICUEdge(Input_Capture_rising_Edge);
+		flag = 0;
+	}
+}
+
+int main(){
+
+	DIO_voidSetPinDirection(PORTB,PIN3,PIN_OUTPUT);
+	DIO_voidSetPinDirection(PORTD,PIN6,PIN_INPUT);
+
+	GIE_voidEnable();
+
+	TIMER1_voidEnable();
+	TIMER1_voidInitialize();
+	TIMER1_voidICUEdge(Input_Capture_rising_Edge);
+	TIMER1_ICU_SetCallBack(ICU_ISR);
+
+	TIMER0_voidEnable();
+	TIMER0_voidInitialize();
+	TIMER0_voidSetPWM(50);
+
+	LCD_voidInitialize();
+
+	u8 duty_cycle;
+
+	while(1){
+
+		duty_cycle =((u32)T_ON*100)/period;
+
+		LCD_voidGoToXY(0,0);
+		LCD_voidWriteNumber(duty_cycle);
+		_delay_ms(500);
+	}
+
+	return 0;
+}

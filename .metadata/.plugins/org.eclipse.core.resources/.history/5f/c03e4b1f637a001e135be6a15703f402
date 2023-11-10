@@ -1,0 +1,46 @@
+/*
+ * EEPROM_program.c
+ *
+ *  Created on: Nov 3, 2023
+ *      Author: Mostafa_Salem
+ */
+
+#include "../../LIB/Bit_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../MCAL/I2C/I2C_interface.h"
+
+void EEPROM_voidInitialze(){
+
+	I2C_voidInitialize();
+}
+
+u8 EEPROM_u8ReadData(u16 Copt_u16Address){
+
+	u8 data;
+
+	u8 hardWare_address = 0x00;
+	u8 data_address = 0x00;
+
+	hardWare_address |= 0b10100000;
+	hardWare_address |= (Copt_u16Address>>7);
+	hardWare_address = (hardWare_address>>1);
+
+	I2C_voidStartCondition();
+	I2C_voidSendSlaveAddressWrite(hardWare_address);
+
+	data_address = Copt_u16Address;
+
+	I2C_voidSendData(data_address);
+
+	I2C_voidStartCondition();
+	I2C_voidSendSlaveAddressRead(hardWare_address);
+
+	data = I2C_u8ReceiveData();
+
+	return data;
+}
+
+void EEPROM_voidWriteData(u16 Copt_u16Address,u8 Copy_u8Data){
+
+
+}
